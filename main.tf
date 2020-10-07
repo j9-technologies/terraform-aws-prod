@@ -91,8 +91,8 @@ resource "aws_eks_node_group" "node_tuto" {
     min_size     = 1
   }
 
-  # instance_types = ["m5.2xlarge"]
-  # disk_size = 500
+  instance_types = ["m5.2xlarge"]
+  disk_size = 500
 
   # Ensure that IAM Role permissions are created before and deleted after EKS Node Group handling.
   # Otherwise, EKS will not be able to properly delete EC2 Instances and Elastic Network Interfaces.
