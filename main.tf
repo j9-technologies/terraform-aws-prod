@@ -80,7 +80,7 @@ resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerRegistryReadOnly" {
   role       = aws_iam_role.eks_nodes.name
 }
 
-resource "aws_eks_node_group" "node" {
+resource "aws_eks_node_group" "node_tuto" {
   cluster_name    = aws_eks_cluster.aws_eks.name
   node_group_name = "node_tuto"
   node_role_arn   = aws_iam_role.eks_nodes.arn
@@ -92,8 +92,8 @@ resource "aws_eks_node_group" "node" {
     min_size     = 1
   }
 
-  instance_types = ["m5.2xlarge"]
-  disk_size = 500
+  # instance_types = ["m5.2xlarge"]
+  # disk_size = 500
 
   # Ensure that IAM Role permissions are created before and deleted after EKS Node Group handling.
   # Otherwise, EKS will not be able to properly delete EC2 Instances and Elastic Network Interfaces.
